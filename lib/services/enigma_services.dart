@@ -27,7 +27,7 @@ class EnigmaService extends ChangeNotifier {
       final tempEnigma = Enigma.fromMap(value);
       tempEnigma.id = key;
       enigmas.add(tempEnigma);
-      print(key);
+      //print(key);
     });
 
     isLoading = false;

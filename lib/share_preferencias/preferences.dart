@@ -9,6 +9,7 @@ class Preferences {
 
   static int _sg = 1;
   static bool _habilitado = false;
+  static bool _ayudaMode = false;
   static List<String> _secuencia = [
     'xx1',
     'xx7',
@@ -149,6 +150,15 @@ class Preferences {
   static set habilitado(bool value) {
     _habilitado = value;
     _prefs.setBool('habilitado', value);
+  }
+
+  static bool get ayudaMode {
+    return _prefs.getBool('ayudaMode') ?? _ayudaMode;
+  }
+
+  static set ayudaMode(bool value) {
+    _ayudaMode = value;
+    _prefs.setBool('ayudaMode', value);
   }
 
   static int get igle {

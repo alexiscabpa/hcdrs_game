@@ -43,7 +43,9 @@ class MyApp extends StatelessWidget {
         'settings': (_) => const SettingsScreen(),
         'enigmas': (_) => const EnigmasScreen(),
         'master': (_) => const MasterScreen(),
-        'mapa': (_) => const MapaPage()
+        'mapa': (_) => const MapaPage(),
+        'timer': (_) => const TimerScreen(),
+        'ayuda': (_) => const AyudaScreen(),
       },
       scaffoldMessengerKey: NotificationsService
           .messengerKey, //en cualquier parte de la aplicacion tendre acceso a este scaffold

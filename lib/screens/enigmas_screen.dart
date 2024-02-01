@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hcdrs_app/models/scan_model.dart';
 import '../Providers/scan_list_provider.dart';
 import '../screens/loading_screen.dart';
 import '../services/servises.dart';
@@ -62,7 +63,24 @@ class _EnigmasScreenState extends State<EnigmasScreen> {
           );
         },
       ),
-      floatingActionButton: ScanButton(cambiostate: cambioState),
+      floatingActionButton: Row(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+          ScanButton(cambiostate: cambioState, tag: 'enigmas'),
+          const SizedBox(
+            width: 8,
+          ),
+          FloatingActionButton(
+            onPressed: () {
+              Navigator.pushNamed(context, 'mapa',
+                  arguments: ScanModel(
+                    valor: 'geo:-25.349611,-55.693171',
+                  ));
+            },
+            child: const Icon(Icons.help),
+          )
+        ],
+      ),
 
       // String barcodeScanRes = await FlutterBarcod  eScanner.scanBarcode(
       //     '#ff6666', 'cancelar', false, ScanMode.QR);

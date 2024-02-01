@@ -7,12 +7,15 @@ import 'package:provider/provider.dart';
 
 class ScanButton extends StatelessWidget {
   //final State state;
-  final Function cambiostate;
-  const ScanButton({Key? key, required this.cambiostate}) : super(key: key);
+  final Function? cambiostate;
+  final String tag;
+  const ScanButton({Key? key, this.cambiostate, required this.tag})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return FloatingActionButton(
+        heroTag: tag,
         child: const Icon(Icons.qr_code_scanner_outlined),
         onPressed: () async {
           String barcodeScanRes = await FlutterBarcodeScanner.scanBarcode(
@@ -20,7 +23,7 @@ class ScanButton extends StatelessWidget {
 
           // String barcodeScanRes = 'geo:-25.349718,-55.692226';
           //String barcodeScanRes ='https://youtu.be/TnVXhA4MDOs?si=rDaNxT8mNBkN7_5a';
-          //String barcodeScanRes = 'xx4';
+          //String barcodeScanRes = 'xx1';
           if (barcodeScanRes == -1) {
             return;
           }

@@ -168,10 +168,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
                               final String sg;
                               if (value[1] == '0') {
                                 sg = value[0] + '0';
-                                print('value: ' + sg);
+                                //print('value: ' + sg);
                               } else {
                                 sg = value[0];
-                                print('value: ' + sg);
+                                //print('value: ' + sg);
                               }
 
                               Preferences.sg = int.parse(sg);
@@ -189,6 +189,22 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     ),
                     onChanged: (value) {
                       Preferences.habilitado = value;
+                      //final themeProvider =
+                      //    Provider.of<ThemeProvider>(context, listen: false);
+                      //value
+                      //    ? themeProvider.setDarkMode()
+                      //    : themeProvider.setLightMode();
+                      setState(() {});
+                    }),
+                const Divider(),
+                SwitchListTile.adaptive(
+                    value: Preferences.ayudaMode,
+                    title: const Text(
+                      'Modo Ayuda',
+                      style: TextStyle(fontSize: 15),
+                    ),
+                    onChanged: (value) {
+                      Preferences.ayudaMode = value;
                       //final themeProvider =
                       //    Provider.of<ThemeProvider>(context, listen: false);
                       //value
