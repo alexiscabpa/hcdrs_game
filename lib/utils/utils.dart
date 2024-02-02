@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:hcdrs_app/models/scan_model.dart';
 
 import 'package:hcdrs_app/share_preferencias/preferences.dart';
+import 'package:hcdrs_app/utils/sonidos.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 launch(BuildContext context, ScanModel scan, Function? cambiostate) async {
@@ -19,6 +20,7 @@ launch(BuildContext context, ScanModel scan, Function? cambiostate) async {
       if (scan.valor == Preferences.secuencia[Preferences.sg]) {
         if (Preferences.sg < 10) {
           Preferences.sg = Preferences.sg + 1;
+          soundEnigmas(Preferences.secuencia[Preferences.sg - 1]);
           cambiostate!();
         }
       } else {
