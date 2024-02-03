@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:hcdrs_app/models/scan_model.dart';
-import '../Providers/scan_list_provider.dart';
 import '../screens/loading_screen.dart';
 import '../services/servises.dart';
 import '../share_preferencias/preferences.dart';
 import 'package:provider/provider.dart';
 import '../widgets/widgets.dart';
-import 'package:hcdrs_app/utils/utils.dart';
+import 'package:hcdrs_app/utils/sonidos.dart';
 
 class EnigmasScreen extends StatefulWidget {
   static List<String> NombresIgle = [
@@ -72,28 +71,16 @@ class _EnigmasScreenState extends State<EnigmasScreen> {
           ),
           FloatingActionButton(
             onPressed: () {
+              soundEnigmas('ayuda');
               Navigator.pushNamed(context, 'mapa',
                   arguments: ScanModel(
                     valor: 'geo:-25.349611,-55.693171',
                   ));
             },
-            child: const Icon(Icons.help),
+            child: const Icon(Icons.help_outline),
           )
         ],
       ),
-
-      // String barcodeScanRes = await FlutterBarcod  eScanner.scanBarcode(
-      //     '#ff6666', 'cancelar', false, ScanMode.QR);
-
-      // onPressed: () {
-      //   if (Preferences.sg < 10) {
-      //     Preferences.sg = Preferences.sg + 1;
-      //     //print('SG: ${Preferences.sg}');
-//
-      //     setState(() {});
-      // }
-      //},
-      // child: const Icon(Icons.qr_code_scanner_sharp),
     );
   }
 }

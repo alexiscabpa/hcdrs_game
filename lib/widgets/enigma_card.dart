@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:hcdrs_app/models/models.dart';
-import 'package:hcdrs_app/share_preferencias/preferences.dart';
-import 'package:hcdrs_app/utils/sonidos.dart';
 
 class EnigmaCard extends StatelessWidget {
   final Enigma enigma;
@@ -13,21 +11,20 @@ class EnigmaCard extends StatelessWidget {
     return Card(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
       margin: const EdgeInsets.all(8),
-      elevation: 20,
+      elevation: 10,
       child: Column(
         children: <Widget>[
-          const SizedBox(height: 20),
+          //const SizedBox(height: 20),
           ListTile(
-            contentPadding: const EdgeInsets.fromLTRB(15, 10, 25, 0),
+            contentPadding: const EdgeInsets.fromLTRB(5, 15, 0, 15),
             title: Text(
               enigma.sobre,
               style: const TextStyle(fontSize: 15),
             ),
             //subtitle: const SizedBox(height: 20),
             leading: CircleAvatar(
-              maxRadius: 50,
-              backgroundImage:
-                  AssetImage('assets/${Preferences.igle.toString()}.jpg'),
+              maxRadius: 30,
+              backgroundImage: AssetImage('assets/enigmas/${enigma.id}.jpg'),
               backgroundColor: const Color.fromARGB(255, 84, 84, 85),
             ),
             trailing: IconButton(
@@ -37,8 +34,12 @@ class EnigmaCard extends StatelessWidget {
               },
             ),
             //arrow_circle_right_outlined),
+            onTap: () {
+              _showDialog(context, enigma.obs, enigma.ayuda, enigma.sobre);
+            },
           ),
-          const SizedBox(height: 20),
+
+          //const SizedBox(height: 20),
         ],
       ),
     );
