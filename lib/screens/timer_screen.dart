@@ -13,7 +13,7 @@ class TimerScreen extends StatefulWidget {
 }
 
 class _TimerScreenState extends State<TimerScreen> {
-  int tiemporestante = 5;
+  int tiemporestante = 30;
   //bool exit = false;
 
   void _startCountDown() {
@@ -34,7 +34,7 @@ class _TimerScreenState extends State<TimerScreen> {
 
   @override
   Widget build(BuildContext context) {
-    if (tiemporestante == 5) {
+    if (tiemporestante == 30) {
       _startCountDown();
     }
     if (tiemporestante == 0) {
@@ -46,33 +46,51 @@ class _TimerScreenState extends State<TimerScreen> {
 
     return Scaffold(
         appBar: (AppBar(
-            title: const Center(
-          child: Text('Ayuda',
-              style: TextStyle(
-                fontSize: 25,
-              )),
-        ))),
+          title: const Center(
+            child: Text('Ayuda',
+                style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold)),
+          ),
+        )),
         body: SingleChildScrollView(
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
+            padding: const EdgeInsets.symmetric(horizontal: 15),
             child: Center(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   const Text(
                     'Tienes 2 minutos para visualizar la ayuda de tu enigma! \n Corre al QR donde inició este enigma y te será revelado la ayuda al volver escanearlo. \n PD. Si no llegas a tiempo deberas volver a iniciar un nuevo intento de ayuda, apúrate antes que tu tiempo expire!',
-                    style: TextStyle(fontSize: 20),
+                    style: TextStyle(fontSize: 18),
                     textAlign: TextAlign.center,
                   ),
-                  const SizedBox(height: 115),
-                  Text(
-                    tiemporestante == 0
-                        ? 'Tiempo Agotado!'
-                        : tiemporestante.toString(),
-                    style: const TextStyle(fontSize: 50),
-                    textAlign: TextAlign.center,
+                  const SizedBox(height: 100),
+                  SizedBox(
+                    width: 250,
+                    height: 250,
+                    child: Stack(
+                      fit: StackFit.expand,
+                      //fit: StackFit.expand,
+                      children: [
+                        CircularProgressIndicator(
+                          value: 1 - tiemporestante / 30,
+                          strokeWidth: 12,
+                          backgroundColor: Colors.blue,
+                          valueColor:
+                              const AlwaysStoppedAnimation(Colors.white),
+                        ),
+                        Center(
+                          child: Text(
+                            tiemporestante == 0
+                                ? 'Tiempo Agotado!'
+                                : tiemporestante.toString(),
+                            style: const TextStyle(fontSize: 40),
+                            textAlign: TextAlign.center,
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
-                  const SizedBox(height: 25),
+                  const SizedBox(height: 35),
                   (Preferences.ayudaMode)
                       ? const ScanButton(tag: 'timer')
                       : FloatingActionButton(

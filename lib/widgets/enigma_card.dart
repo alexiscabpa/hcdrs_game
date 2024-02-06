@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hcdrs_app/models/models.dart';
+import 'package:hcdrs_app/utils/sonidos.dart';
 
 class EnigmaCard extends StatelessWidget {
   final Enigma enigma;
@@ -30,12 +31,14 @@ class EnigmaCard extends StatelessWidget {
             trailing: IconButton(
               icon: const Icon(Icons.info_outline, size: 30),
               onPressed: () {
-                _showDialog(context, enigma.obs, enigma.ayuda, enigma.sobre);
+                _showDialog(
+                    context, enigma.obs, enigma.ayuda, enigma.sobre, enigma.id);
               },
             ),
             //arrow_circle_right_outlined),
             onTap: () {
-              _showDialog(context, enigma.obs, enigma.ayuda, enigma.sobre);
+              _showDialog(
+                  context, enigma.obs, enigma.ayuda, enigma.sobre, enigma.id);
             },
           ),
 
@@ -46,7 +49,9 @@ class EnigmaCard extends StatelessWidget {
   }
 }
 
-_showDialog(BuildContext ctx, String contenido, String? ayuda, String enigm) {
+_showDialog(BuildContext ctx, String contenido, String? ayuda, String enigm,
+    String? id) {
+  soundEnigmas(id!);
   showDialog(
       context: ctx,
       builder: (context) {
@@ -56,7 +61,11 @@ _showDialog(BuildContext ctx, String contenido, String? ayuda, String enigm) {
                   style: const TextStyle(
                       fontSize: 15, fontWeight: FontWeight.bold))),
           children: <Widget>[
-            const Center(child: Icon(Icons.info_outline)),
+            Center(
+              child: CircleAvatar(
+                  maxRadius: 100,
+                  backgroundImage: AssetImage('assets/enigmas/$id.jpg')),
+            ),
             const SizedBox(
               height: 10,
             ),

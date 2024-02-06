@@ -51,6 +51,18 @@ class _body extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final enigmasSevice = Provider.of<EnigmaService>(context);
+    int iX = 0;
+
+    for (var i = 0; i < 10; i++) {
+      if (Preferences.secuencia[Preferences.sg - 1] ==
+          enigmasSevice.enigmas[i].id) {
+        iX = i;
+        // print('service ${enigmasSevice.enigmas[i].id}');
+        break;
+        //print('preference : ${Preferences.secuencia[Preferences.sg - 1]}');
+      }
+    }
+
     return SingleChildScrollView(
       child: Column(
         children: [
@@ -65,7 +77,7 @@ class _body extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 15),
                   child: Text(
-                    'Ayuda bonus sobre el enigma "${enigmasSevice.enigmas[Preferences.sg - 1].sobre}"',
+                    'Ayuda bonus sobre el enigma "${enigmasSevice.enigmas[iX].sobre}"',
                     textAlign: TextAlign.center,
                     style: const TextStyle(
                         fontSize: 25, fontWeight: FontWeight.bold),
@@ -98,7 +110,7 @@ class _body extends StatelessWidget {
                             padding: const EdgeInsets.symmetric(
                                 horizontal: 15, vertical: 10),
                             child: Text(
-                              enigmasSevice.enigmas[Preferences.sg - 1].ayuda,
+                              enigmasSevice.enigmas[iX].ayuda,
                               textAlign: TextAlign.center,
                               style: const TextStyle(
                                   fontSize: 25, fontStyle: FontStyle.italic),

@@ -6,6 +6,7 @@ import '../share_preferencias/preferences.dart';
 import 'package:provider/provider.dart';
 import '../widgets/widgets.dart';
 import 'package:hcdrs_app/utils/sonidos.dart';
+import 'package:animate_do/animate_do.dart';
 
 class EnigmasScreen extends StatefulWidget {
   static List<String> NombresIgle = [
@@ -57,8 +58,11 @@ class _EnigmasScreenState extends State<EnigmasScreen> {
             }
           }
 
-          return EnigmaCard(
-            enigma: enigmasSevice.enigmas[auxIdex],
+          return FadeInDownBig(
+            duration: const Duration(seconds: 2),
+            child: EnigmaCard(
+              enigma: enigmasSevice.enigmas[auxIdex],
+            ),
           );
         },
       ),
