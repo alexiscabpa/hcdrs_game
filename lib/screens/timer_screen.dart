@@ -63,7 +63,7 @@ class _TimerScreenState extends State<TimerScreen> {
                     style: TextStyle(fontSize: 18),
                     textAlign: TextAlign.center,
                   ),
-                  const SizedBox(height: 100),
+                  const SizedBox(height: 70),
                   SizedBox(
                     width: 250,
                     height: 250,

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-
+import 'package:http/http.dart' as http;
 import 'package:hcdrs_app/models/scan_model.dart';
-
+import 'dart:convert';
 import 'package:hcdrs_app/share_preferencias/preferences.dart';
 import 'package:hcdrs_app/utils/sonidos.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -65,7 +65,29 @@ launch(BuildContext context, ScanModel scan, Function? cambiostate) async {
               Uri.parse('https://youtu.be/eZWv_Dvyz38?si=-ICq5-lYne8VxZa9');
           launchUrl(url);
 
+          //Algoritmo para extraer la hora y nombre del ganador
+
+          DateTime ahora = DateTime.now();
+
+          print(
+              '${Preferences.nombresIgle[Preferences.igle - 1]} a las:${ahora.hour}:${ahora.minute}:${ahora.second}');
+          Preferences.termino =
+              '${Preferences.nombresIgle[Preferences.igle - 1]} a las ${ahora.hour}:${ahora.minute}:${ahora.second}';
           print('Ganador del juego ');
+
+          //Actualizar Enigma tesoro el xx11 para revisar quien actualizo primero
+
+          var urlX = Uri.https(
+              'flutter-varios-6e212-default-rtdb.firebaseio.com',
+              'puestos/${Preferences.igle}.json');
+          print(urlX);
+          var response = await http.put(urlX,
+              body: jsonEncode({
+                'iglesia': '${Preferences.nombresIgle[Preferences.igle - 1]}',
+                'informe': '${Preferences.termino}'
+              }));
+          print('Response status: ${response.statusCode}');
+
           //if (cambiostate != null) {
           //  cambiostate();
           //}

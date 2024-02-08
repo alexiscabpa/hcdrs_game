@@ -7,13 +7,6 @@ import 'package:hcdrs_app/ui/input_decorations.dart';
 import '../widgets/widgets.dart';
 
 class HomeScreen extends StatelessWidget {
-  static List<String> NombresIgle = [
-    "EFESO",
-    "LAODICEA",
-    "SARDIS",
-    "FILADELFIA"
-  ];
-
   HomeScreen({Key? key}) : super(key: key);
   TextEditingController passcontrolller = TextEditingController();
 
@@ -33,7 +26,7 @@ class HomeScreen extends StatelessWidget {
                 backgroundColor: Colors.indigo[900],
               ))
         ],
-        title: Text(NombresIgle[Preferences.igle - 1]),
+        title: Text(Preferences.nombresIgle[Preferences.igle - 1]),
       ),
       drawer: const SideMenu(),
       body: Stack(children: [

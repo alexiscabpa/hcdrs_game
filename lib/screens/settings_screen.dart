@@ -213,6 +213,25 @@ class _SettingsScreenState extends State<SettingsScreen> {
                       setState(() {});
                     }),
                 const Divider(),
+                Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: Row(
+                    children: [
+                      Text(
+                        'Terminado : ${Preferences.termino}',
+                        style: const TextStyle(fontSize: 15),
+                      ),
+                      const SizedBox(width: 10),
+                      TextButton(
+                          onPressed: () {
+                            Preferences.termino = "";
+                            setState(() {});
+                          },
+                          child: const Text('Borrar'))
+                    ],
+                  ),
+                ),
+                const Divider(),
                 const Padding(
                   padding: EdgeInsets.all(8.0),
                   child: Text(

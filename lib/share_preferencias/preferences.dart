@@ -6,10 +6,16 @@ class Preferences {
   static int _iglesia = 1;
 
   static String _llave = 'llave';
-
+  static String _termino = '';
   static int _sg = 1;
   static bool _habilitado = false;
   static bool _ayudaMode = false;
+  static List<String> _nombresIgle = [
+    "EFESO",
+    "LAODICEA",
+    "SARDIS",
+    "FILADELFIA"
+  ];
   static List<String> _secuencia = [
     'xx1',
     'xx7',
@@ -35,6 +41,15 @@ class Preferences {
     _prefs.setStringList('secuencia', list);
   }
 
+  static List<String> get nombresIgle {
+    return _prefs.getStringList('nombresIgle') ?? _nombresIgle;
+  }
+
+  static set nombresIgle(List<String> list) {
+    _nombresIgle = list;
+    _prefs.setStringList('nombresIgle', list);
+  }
+
   static String get llave {
     return _prefs.getString('llave') ?? _llave;
   }
@@ -42,6 +57,15 @@ class Preferences {
   static set llave(String key) {
     _llave = key;
     _prefs.setString('llave', key);
+  }
+
+  static String get termino {
+    return _prefs.getString('termino') ?? _termino;
+  }
+
+  static set termino(String key) {
+    _termino = key;
+    _prefs.setString('termino', key);
   }
 
 //  static String get s1 {

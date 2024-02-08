@@ -34,4 +34,39 @@ class EnigmaService extends ChangeNotifier {
     notifyListeners();
     return enigmas;
   }
+
+  Future saveGanador(Enigma enigma) async {
+    notifyListeners();
+
+    Future<String> updateEnigma(Enigma enigma) async {
+      final url = Uri.https(_baseUrl, 'postas/xx11.json');
+      final resp = await http.put(url, body: enigma.toJson());
+      final decodedData = resp.body;
+      //print(decodedData);
+
+      //******Actualizacion del listado de productos metodo tradicional********************
+
+      /*for (int i = 0; i < products.length; i++) {
+       if (products[i].id == product.id) {
+          products[i] = product;
+          //print('mostrando el listado del tema: ${product.toJson()}');
+          break;
+        }
+      }
+*****************************************************************************************/
+
+      //*********Otro metodo mas eficiente para encontrar el id del producto**************
+      final index = enigmas.indexWhere((element) => element.id == enigma.id);
+      enigmas[index] = enigma;
+
+      return enigma.id!;
+    }
+
+    //***************************************************************************
+
+    // actualizar
+    await updateEnigma(enigma);
+
+    notifyListeners();
+  }
 }
