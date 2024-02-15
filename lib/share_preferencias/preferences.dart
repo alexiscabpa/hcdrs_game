@@ -5,7 +5,7 @@ class Preferences {
 
   static int _iglesia = 1;
   static int _copas = 0;
-  static String _llave = 'llave';
+  static String _llave = 'RUTH Y SAMUEL';
   static String _termino = '';
 
   static int _sg = 1;

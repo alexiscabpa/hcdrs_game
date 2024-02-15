@@ -37,16 +37,14 @@ class HomeScreen extends StatelessWidget {
           onPressed: () {
             FocusScope.of(context).unfocus();
 
-            if (passcontrolller.text == Preferences.llave) {
+            if (passcontrolller.text.toUpperCase() == Preferences.llave) {
               Navigator.pushReplacementNamed(context, 'enigmas');
               Preferences.habilitado = true;
             } else {
               //Navigator.pop(context);
             }
           },
-          child: Icon(passcontrolller.text.isEmpty
-              ? Icons.subdirectory_arrow_right
-              : Icons.qr_code_scanner)),
+          child: const Icon(Icons.check_circle_outlined)),
     );
   }
 }

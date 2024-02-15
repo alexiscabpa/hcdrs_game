@@ -19,35 +19,38 @@ Future? dialogRespuesta(BuildContext contexto, String contenido, String? ayuda,
                     style: const TextStyle(
                         fontSize: 15, fontWeight: FontWeight.bold))),
             content: Center(
-              child: Column(
-                children: [
-                  Center(
-                    child: CircleAvatar(
-                        maxRadius: 100,
-                        backgroundImage: AssetImage('assets/enigmas/$id.jpg')),
-                  ),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 10),
-                    child: Center(
-                        child: Text(
-                      contenido,
-                      style: const TextStyle(fontSize: 15),
-                    )),
-                  ),
-                  const Text(
-                    'Ingresar respuesta: ',
-                    style: TextStyle(fontSize: 20),
-                  ),
-                  TextField(
-                    autofocus: true,
-                    decoration: const InputDecoration(
-                        hintText: 'Respuesta', prefixIcon: Icon(Icons.key)),
-                    controller: controlRespuesta,
-                  ),
-                ],
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    Center(
+                      child: CircleAvatar(
+                          maxRadius: 100,
+                          backgroundImage:
+                              AssetImage('assets/enigmas/$id.jpg')),
+                    ),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 10),
+                      child: Center(
+                          child: Text(
+                        contenido,
+                        style: const TextStyle(fontSize: 15),
+                      )),
+                    ),
+                    const Text(
+                      'Ingresar respuesta: ',
+                      style: TextStyle(fontSize: 20),
+                    ),
+                    TextField(
+                      autofocus: true,
+                      decoration: const InputDecoration(
+                          hintText: 'Respuesta', prefixIcon: Icon(Icons.key)),
+                      controller: controlRespuesta,
+                    ),
+                  ],
+                ),
               ),
             ),
             actions: [
