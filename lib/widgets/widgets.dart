@@ -6,3 +6,4 @@ export 'package:hcdrs_app/widgets/Card_Container.dart';
 export 'package:hcdrs_app/widgets/auth_backgrunod.dart';
 export "package:hcdrs_app/widgets/side_menu.dart";
 export "package:hcdrs_app/widgets/background.dart";
+export "package:hcdrs_app/widgets/danRespuesta.dart";

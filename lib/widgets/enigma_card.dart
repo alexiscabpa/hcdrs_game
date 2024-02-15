@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:hcdrs_app/models/models.dart';
+import 'package:hcdrs_app/share_preferencias/preferences.dart';
 import 'package:hcdrs_app/utils/sonidos.dart';
+import 'package:hcdrs_app/widgets/dialog_copas.dart';
+import 'package:hcdrs_app/widgets/widgets.dart';
 
 class EnigmaCard extends StatelessWidget {
   final Enigma enigma;
-  const EnigmaCard({Key? key, required this.enigma}) : super(key: key);
+  final Function? cambiostate;
+  const EnigmaCard({Key? key, required this.enigma, this.cambiostate})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -31,14 +36,34 @@ class EnigmaCard extends StatelessWidget {
             trailing: IconButton(
               icon: const Icon(Icons.info_outline, size: 30),
               onPressed: () {
-                _showDialog(
-                    context, enigma.obs, enigma.ayuda, enigma.sobre, enigma.id);
+                if (Preferences.copas > 0 && enigma.id == 'xx8') {
+                  copasDialog(context);
+                } else {
+                  if (enigma.id == 'xx3' &&
+                      Preferences.secuencia[Preferences.sg - 1] == 'xx3') {
+                    dialogRespuesta(context, enigma.obs, enigma.ayuda,
+                        enigma.sobre, enigma.id, cambiostate);
+                  } else {
+                    _showDialog(context, enigma.obs, enigma.ayuda, enigma.sobre,
+                        enigma.id);
+                  }
+                }
               },
             ),
             //arrow_circle_right_outlined),
             onTap: () {
-              _showDialog(
-                  context, enigma.obs, enigma.ayuda, enigma.sobre, enigma.id);
+              if (Preferences.copas > 0 && enigma.id == 'xx8') {
+                copasDialog(context);
+              } else {
+                if (enigma.id == 'xx3' &&
+                    Preferences.secuencia[Preferences.sg - 1] == 'xx3') {
+                  dialogRespuesta(context, enigma.obs, enigma.ayuda,
+                      enigma.sobre, enigma.id, cambiostate);
+                } else {
+                  _showDialog(context, enigma.obs, enigma.ayuda, enigma.sobre,
+                      enigma.id);
+                }
+              }
             },
           ),
 

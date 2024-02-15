@@ -62,6 +62,7 @@ class _EnigmasScreenState extends State<EnigmasScreen> {
             duration: const Duration(seconds: 2),
             child: EnigmaCard(
               enigma: enigmasSevice.enigmas[auxIdex],
+              cambiostate: cambioState,
             ),
           );
         },

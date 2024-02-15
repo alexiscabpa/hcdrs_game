@@ -92,7 +92,7 @@ class _TimerScreenState extends State<TimerScreen> {
                   ),
                   const SizedBox(height: 35),
                   (Preferences.ayudaMode)
-                      ? const ScanButton(tag: 'timer')
+                      ? ScanButton(tag: 'timer')
                       : FloatingActionButton(
                           onPressed: () {
                             Navigator.pushReplacementNamed(context, 'enigmas');

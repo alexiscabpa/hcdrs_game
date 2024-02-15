@@ -4,9 +4,10 @@ class Preferences {
   static late SharedPreferences _prefs;
 
   static int _iglesia = 1;
-
+  static int _copas = 0;
   static String _llave = 'llave';
   static String _termino = '';
+
   static int _sg = 1;
   static bool _habilitado = false;
   static bool _ayudaMode = false;
@@ -15,6 +16,15 @@ class Preferences {
     "LAODICEA",
     "SARDIS",
     "FILADELFIA"
+  ];
+  static List<String> _copasIra = [
+    "xc1",
+    "xc2",
+    "xc3",
+    "xc4",
+    "xc5",
+    "xc6",
+    "xc7"
   ];
   static List<String> _secuencia = [
     'xx1',
@@ -39,6 +49,15 @@ class Preferences {
   static set secuencia(List<String> list) {
     _secuencia = list;
     _prefs.setStringList('secuencia', list);
+  }
+
+  static List<String> get copasIra {
+    return _prefs.getStringList('copasIra') ?? _copasIra;
+  }
+
+  static set copasIra(List<String> list) {
+    _copasIra = list;
+    _prefs.setStringList('copasIra', list);
   }
 
   static List<String> get nombresIgle {
@@ -165,6 +184,15 @@ class Preferences {
   static set sg(int value) {
     _sg = value;
     _prefs.setInt('sg', value);
+  }
+
+  static int get copas {
+    return _prefs.getInt('copas') ?? _copas;
+  }
+
+  static set copas(int value) {
+    _copas = value;
+    _prefs.setInt('copas', value);
   }
 
   static bool get habilitado {
