@@ -54,31 +54,32 @@ launch(BuildContext context, ScanModel scan, Function? cambiostate) async {
                 } else {
                   //en el caso de que escanees algo que no sea correlativo a la secuencia y sea del tipo 'info', que no tiene http ni geo
                   final Uri url = Uri.parse(
-                      'https://youtu.be/2DPCNEqeE00?si=vBWw-4mbiyhPua_-');
+                      'https://drive.google.com/file/d/1wtR5qPUudqZYcujMWvx6CY2Jachq7ltu/view?usp=drive_link');
                   launchUrl(url);
                 }
+
                 if (Preferences.copas > 0) {
                   if (Preferences.copasIra[Preferences.copas - 1] ==
                       scan.valor) {
                     copasDialog(
                         context); //Aparece una copa simbolica y lanza ubicacion de la siguiente copa
-                  } else {
-                    //en el caso de que escanees algo que no sea correlativo a la secuencia y sea del tipo 'info', que no tiene http ni geo
-                    final Uri url = Uri.parse(
-                        'https://youtu.be/2DPCNEqeE00?si=vBWw-4mbiyhPua_-');
-                    launchUrl(url);
                   }
                 }
-              }
-
-              //en el caso que sea el contenido de ayuda y el modoAyuda activado
-              if (scan.valor == 'xx?') {
-                //informar que tinene un tiempo limitado para escanear qr de enigma
-                Preferences.ayudaMode = true;
-                // abrir ScreenTimer
-                //print('entro como true en la condicion xx?');
-                Navigator.of(context)
-                    .pushNamedAndRemoveUntil('timer', (route) => false);
+              } else {
+                //en el caso que sea el contenido de ayuda y el modoAyuda activado
+                if (scan.valor == 'xx?') {
+                  //informar que tinene un tiempo limitado para escanear qr de enigma
+                  Preferences.ayudaMode = true;
+                  // abrir ScreenTimer
+                  //print('entro como true en la condicion xx?');
+                  Navigator.of(context)
+                      .pushNamedAndRemoveUntil('timer', (route) => false);
+                } else {
+                  //en el caso de que escanees algo que no sea correlativo a la secuencia y sea del tipo 'info', que no tiene http ni geo
+                  final Uri url = Uri.parse(
+                      'https://drive.google.com/file/d/1wtR5qPUudqZYcujMWvx6CY2Jachq7ltu/view?usp=drive_link');
+                  launchUrl(url);
+                }
               }
             } else {
               //return;
@@ -143,7 +144,7 @@ launch(BuildContext context, ScanModel scan, Function? cambiostate) async {
               } else {
                 //en el caso de que escanees algo que no sea correlativo a la secuencia y sea del tipo 'info', que no tiene http ni geo
                 final Uri url = Uri.parse(
-                    'https://youtu.be/2DPCNEqeE00?si=vBWw-4mbiyhPua_-');
+                    'https://drive.google.com/file/d/1wtR5qPUudqZYcujMWvx6CY2Jachq7ltu/view?usp=drive_link');
                 launchUrl(url);
               }
             }

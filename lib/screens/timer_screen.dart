@@ -59,7 +59,7 @@ class _TimerScreenState extends State<TimerScreen> {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   const Text(
-                    'Tienes 2 minutos para visualizar la ayuda de tu enigma! \n Corre al QR donde inició este enigma y te será revelado la ayuda al volver escanearlo. \n PD. Si no llegas a tiempo deberas volver a iniciar un nuevo intento de ayuda, apúrate antes que tu tiempo expire!',
+                    'Andá al QR donde inició este enigma y vuelve a escanearlo, \nTienes 5 minutos!\n PD. Si tu tiempo expira, vulve al QR de ayuda, apurate!',
                     style: TextStyle(fontSize: 18),
                     textAlign: TextAlign.center,
                   ),
