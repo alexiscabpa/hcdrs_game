@@ -23,7 +23,7 @@ class ScanButton extends StatelessWidget {
 
           //String barcodeScanRes = 'geo:-25.349718,-55.692226';
           //String barcodeScanRes ='https://youtu.be/TnVXhA4MDOs?si=rDaNxT8mNBkN7_5a';
-          // String barcodeScanRes = 'xx3';
+          // String barcodeScanRes = 'xx10';
 
           if (barcodeScanRes == -1) {
             return;

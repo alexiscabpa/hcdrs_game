@@ -134,9 +134,9 @@ class _body extends StatelessWidget {
                           autocorrect: false,
                           keyboardType: TextInputType.text,
                           obscureText:
-                              true, //para que no se vea lo que se escribe
+                              false, //para que no se vea lo que se escribe
                           decoration: InputDecorations.authInputDecoration(
-                              hintText: '*********',
+                              hintText: 'Respuesta',
                               labelText: 'Llave',
                               prefIcon: Icons.lock_outline),
                         ),

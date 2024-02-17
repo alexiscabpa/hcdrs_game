@@ -1,3 +1,4 @@
+import 'dart:ffi';
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
@@ -6,6 +7,10 @@ import 'package:hcdrs_app/services/servises.dart';
 import 'package:hcdrs_app/share_preferencias/preferences.dart';
 import 'package:hcdrs_app/widgets/background.dart';
 import 'package:provider/provider.dart';
+import 'package:string_validator/string_validator.dart';
+import 'package:url_launcher/url_launcher.dart';
+
+String AuxAyuda = '';
 
 class AyudaScreen extends StatelessWidget {
   const AyudaScreen({Key? key}) : super(key: key);
@@ -51,6 +56,7 @@ class _body extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final enigmasSevice = Provider.of<EnigmaService>(context);
+
     int iX = 0;
 
     for (var i = 0; i < 10; i++) {
@@ -62,7 +68,7 @@ class _body extends StatelessWidget {
         //print('preference : ${Preferences.secuencia[Preferences.sg - 1]}');
       }
     }
-
+    AuxAyuda = enigmasSevice.enigmas[iX].ayuda;
     return SingleChildScrollView(
       child: Column(
         children: [
@@ -124,6 +130,19 @@ class _body extends StatelessWidget {
                 const SizedBox(
                   height: 10,
                 ),
+                FloatingActionButton(
+                  onPressed: () {
+                    if (isURL(AuxAyuda)) {
+                      final Uri url = Uri.parse(AuxAyuda);
+                      launchUrl(url);
+                    } else {
+                      //Navigator.of(context).pop();
+                    }
+                  },
+                  child: isURL(AuxAyuda)
+                      ? const Icon(Icons.play_arrow)
+                      : const Icon(Icons.question_mark),
+                )
               ],
             ),
           ),
@@ -132,3 +151,9 @@ class _body extends StatelessWidget {
     );
   }
 }
+
+//Bool isUrl(String userInput) {
+//  userInput = AuxAyuda;
+//  bool isValid = isURL(userInput);
+//  return isValid;
+//}

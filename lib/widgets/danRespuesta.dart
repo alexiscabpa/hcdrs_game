@@ -71,7 +71,7 @@ Future? dialogRespuesta(BuildContext contexto, String contenido, String? ayuda,
                     } else {
                       //en el caso de que escanees y te equivoques la respuesta
                       final Uri url = Uri.parse(
-                          'https://youtu.be/2DPCNEqeE00?si=vBWw-4mbiyhPua_-');
+                          'https://drive.google.com/file/d/1p6tgQGQaR76o6igTJ-3492vzpKK8WqGo/view?usp=drive_link');
                       launchUrl(url);
                     }
 

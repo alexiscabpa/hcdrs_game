@@ -91,7 +91,7 @@ class _LoginForm extends StatelessWidget {
                   onPressed: () {
                     FocusScope.of(context).unfocus();
 
-                    if (passcontrolller.text == '123') {
+                    if (passcontrolller.text == 'plagas') {
                       Navigator.pushReplacementNamed(context, 'settings');
                     } else {
                       _showDialog(context);
