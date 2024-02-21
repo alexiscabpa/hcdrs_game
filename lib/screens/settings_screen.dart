@@ -279,6 +279,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
           Preferences.sg = 1;
           Preferences.habilitado = false;
           Preferences.ayudaMode = false;
+          setState(() {});
         },
         child: const Icon(
           Icons.restart_alt,

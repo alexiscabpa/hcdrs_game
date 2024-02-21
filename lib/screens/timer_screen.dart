@@ -13,7 +13,7 @@ class TimerScreen extends StatefulWidget {
 }
 
 class _TimerScreenState extends State<TimerScreen> {
-  int tiemporestante = 30;
+  int tiemporestante = 300;
   //bool exit = false;
 
   void _startCountDown() {
@@ -34,7 +34,7 @@ class _TimerScreenState extends State<TimerScreen> {
 
   @override
   Widget build(BuildContext context) {
-    if (tiemporestante == 30) {
+    if (tiemporestante == 300) {
       _startCountDown();
     }
     if (tiemporestante == 0) {
@@ -72,7 +72,7 @@ class _TimerScreenState extends State<TimerScreen> {
                       //fit: StackFit.expand,
                       children: [
                         CircularProgressIndicator(
-                          value: 1 - tiemporestante / 30,
+                          value: 1 - tiemporestante / 300,
                           strokeWidth: 12,
                           backgroundColor: Colors.blue,
                           valueColor:

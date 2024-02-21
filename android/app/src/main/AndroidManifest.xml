@@ -5,7 +5,7 @@
    <application
         android:label="HCDRS GAMES"
         android:name="${applicationName}"
-        android:icon="@mipmap/campa_logo">
+        android:icon="@mipmap/launcher_icon">
         <meta-data android:name="com.google.android.geo.API_KEY"
                android:value="AIzaSyC2tpoky4bdKwZPxkA6dk3c13utdch26BA"/>
         <activity
