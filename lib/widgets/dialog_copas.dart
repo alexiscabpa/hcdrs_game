@@ -45,22 +45,22 @@ copasDialog(BuildContext ctx) {
                         if (Preferences.igle == 1) {
                           //Le lleva al lado del puente2, xx5
                           coordenada =
-                              'geo:-25.348377934004137,-55.69188481771313';
+                              'geo:-25.34818529506335, -55.691810903335885';
                         } else {
                           if (Preferences.igle == 2) {
                             //Le lleva al lado del puente xx10
 
                             coordenada =
-                                'geo:-25.349450478972276, -55.691770719644225';
+                                'geo:-25.34818697355597, -55.69181126113917';
                           } else {
                             if (Preferences.igle == 3) {
                               //Le lleva al lado del puente xx9
                               coordenada =
-                                  'geo:-25.349545578040406, -55.69113523264921';
+                                  'geo:-25.348181526582096, -55.69180861185267';
                             } else {
                               //Le lleva al lado del puente xx9
                               coordenada =
-                                  'geo:-25.349545578040406, -55.69113523264921';
+                                  'geo:-25.348183467432357, -55.69181178228123';
                             }
                           }
                         }
